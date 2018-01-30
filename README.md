@@ -147,9 +147,9 @@ All components depending on the store must be children of a `StoreProvider`.
 
 Use `connect` to connect the store to a react component. 
 
-The first argument maps the state to the components props. If it's a falsy value props from the state will be set.
+The first argument maps the state to the components props. If it's a falsy value _no_ props from the state will be set.
 
-The second argument maps the actions to the components `actions` prop. If it's a falsy value all actions will be available in the `actions` prop in the component.
+The second argument maps the actions to the components `actions` prop. If it's a falsy value _all_ actions will be available in the `actions` prop in the component.
 
 ```
   const ConnectedComponent = connect(
