@@ -34,6 +34,7 @@ export default function connect(stateFn, actionFn) {
           }
 
           if (hasChanged) {
+            // Re-render this component to pass the new state to Component
             this.setState({});
           }
 
