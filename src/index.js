@@ -1,9 +1,12 @@
-import React, {Component} from 'react'
+import combineActions from './combineActions';
+import createStore from './createStore';
+import connect from './connect';
+import StoreProvider from './StoreProvider';
 
-export default class extends Component {
-  render() {
-    return <div>
-      <h2>Welcome to React components</h2>
-    </div>
-  }
-}
+export {
+  combineActions,
+  createStore,
+  connect,
+  StoreProvider,
+};
+
