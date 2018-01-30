@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {render} from 'react-dom'
 
-import { connect, createStore, StoreProvider } from '../../src'
+import { createStore, StoreProvider } from '../../src'
 import CreateTodo from './components/CreateTodo';
 import TodoList from './components/TodoList';
 
