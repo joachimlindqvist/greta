@@ -1,16 +1,16 @@
 import { combineActions } from "../../src/index";
 
 const formActions = {
-  formChange: (value) => (state, { set }) =>
+  formChange: (value) => ({ set }) =>
     set('formValue', value),
-  formReset: (value) => (state, { set }) =>
+  formReset: (value) => ({ set }) =>
     set('formValue', ''),
 }
 
 const todoActions = {
-  createTodo: (title) => (state, { add }) => {
+  createTodo: (title) => ({ add }) => {
     if (title.length === 0) return;
-    
+
     add('todos', {
       id: Math.random().toString(),
       title,
@@ -18,14 +18,14 @@ const todoActions = {
       date: new Date()
     });
   },
-  toggleCompletedness: (todo) => (state, { map }) =>
+  toggleCompletedness: (todo) => ({ map }) =>
     map('todos', (cur) => {
       if (cur.id === todo.id) {
         return { ...cur, completed: !cur.completed };
       }
       return cur;
     }),
-  removeTodo: (todo) => (state, { removeWhere }) =>
+  removeTodo: (todo) => ({ removeWhere }) =>
     removeWhere('todos', (cur) => todo.id === cur.id),
 };
 

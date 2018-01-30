@@ -37,7 +37,7 @@ describe('state', () => {
 describe('actions', () => {
   it('updates to returned state', () => {
     const newState = {};
-    const store = createStore({}, { m: () => (state) => newState });
+    const store = createStore({}, { m: () => () => newState });
     store.actions.m();
     expect(store.getState()).toBe(newState);
   });
@@ -65,7 +65,7 @@ describe('builder functions', () => {
       let globalStore = null;
       const store = createDeepObjectStore({
         dummyAction: () => () => {},
-        modifyDeep: () => (_, { set }) =>
+        modifyDeep: () => () =>
           globalStore.actions.dummyAction()
       });
       globalStore = store;
@@ -74,7 +74,7 @@ describe('builder functions', () => {
     
     it('handles strings as paths', () => {
       const store = createDeepObjectStore({
-        modifyDeep: () => (_, { set }) =>
+        modifyDeep: () => ({ set }) =>
           set('a', 9)
       });
       store.actions.modifyDeep();
@@ -84,7 +84,7 @@ describe('builder functions', () => {
 
     it('handles dot notation strings as path', () => {
       const store = createDeepObjectStore({
-        modifyDeep: () => (_, { set }) =>
+        modifyDeep: () => ({ set }) =>
           set('a.b.c', 9)
       });
       store.actions.modifyDeep();
@@ -96,7 +96,7 @@ describe('builder functions', () => {
 
     it('handles an array as path', () => {
       const store = createDeepObjectStore({
-        modifyDeep: () => (_, { set }) =>
+        modifyDeep: () => ({ set }) =>
           set(['a', 'b', 'c'], 9)
       });
       store.actions.modifyDeep();
@@ -110,7 +110,7 @@ describe('builder functions', () => {
   describe('set', () => {
     it('copies all parent objects but no neighbours', () => {
       const store = createDeepObjectStore({
-        modifyDeep: () => (_, { set }) =>
+        modifyDeep: () => ({ set }) =>
           set(['a', 'b', 'c'], 9)
       });
       const prevState = store.getState();

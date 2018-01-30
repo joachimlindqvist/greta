@@ -9,7 +9,7 @@ export default function createBuilder(state) {
     //   return arg(state.state);
     // });
 
-    const ret = action(...args)(state, utils());
+    const ret = action(...args)(utils());
     if (ret === undefined) {
       persist();
       return state;
@@ -56,7 +56,8 @@ export default function createBuilder(state) {
       remove,
       add,
       replace,
-      map
+      map,
+      state
     }
   }
 
