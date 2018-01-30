@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function connect(stateFn, actionFn) {
-  stateFn = stateFn || function() { return {}; };
-  actionFn = actionFn || function(actions) { return actions; };
+export default function connect(Component) {
 
-  return function(Component) {
+  return function(stateFn, actionFn) {
+
+    stateFn = stateFn || function() { return {}; };
+    actionFn = actionFn || function(actions) { return actions; };
+
     class ConnectedComponent extends React.Component {
 
       componentWillMount() {

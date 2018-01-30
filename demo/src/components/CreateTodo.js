@@ -25,6 +25,6 @@ const CreateTodo = (props) => (
   </div>
 );
 
-export default connect(
+export default connect(CreateTodo)(
   (s) => ({ formValue: s.formValue })
-)(CreateTodo);
+);

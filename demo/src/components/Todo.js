@@ -28,10 +28,10 @@ const Todo = (props) => (
   </li>
 );
 
-export default connect(
+export default connect(Todo)(
   null,
   (actions) => ({
     toggleCompletedness: actions.toggleCompletedness,
     removeTodo: actions.removeTodo
   })
-)(Todo);
+);

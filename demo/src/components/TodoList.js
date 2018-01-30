@@ -12,7 +12,7 @@ const TodoList = (props) => (
   </ul>
 );
 
-export default connect(
+export default connect(TodoList)(
   s => ({ todos: s.todos }),
-)(TodoList);
+);
 

@@ -152,8 +152,8 @@ The first argument maps the state to the components props. If it's a falsy value
 The second argument maps the actions to the components `actions` prop. If it's a falsy value _all_ actions will be available in the `actions` prop in the component.
 
 ```
-  const ConnectedComponent = connect(
+  const ConnectedComponent = connect(Component)(
     (state) => ({ todos: state.todos }),
     (actions) => ({ addTodo: actions.addTodo, removeTodo: actions.removeTodo }),
-  )(Component)
+  )
 ```
