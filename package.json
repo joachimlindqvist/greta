@@ -19,7 +19,7 @@
     "test:watch": "nwb test-react --server"
   },
   "dependencies": {
-    "enzyme": "^3.3.0",
+    "enzyme": "^3.8.0",
     "invariant": "^2.2.2",
     "prop-types": "^15.6.0"
   },
