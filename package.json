@@ -21,7 +21,7 @@
   "dependencies": {
     "enzyme": "^3.3.0",
     "invariant": "^2.2.2",
-    "prop-types": "^15.6.0"
+    "prop-types": "^15.7.1"
   },
   "peerDependencies": {
     "react": "16.x"
